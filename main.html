@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CELEBRATION</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .back-video {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+        .data {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            flex-direction: column;
+        }
+        .center-text {
+            font-size: 50px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style: italic;
+            color: white;
+        }
+        #countdown {
+            margin-top: 20px;
+            color: white;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const name = localStorage.getItem('userName');
+            if (name) {
+                const centerTextElement = document.querySelector('.center-text');
+                centerTextElement.textContent += `, ${name}`;
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</head>
+<body>
+    
+    <div class="data">
+        <div class="center-text">Welcome to 2025</div>
+        <div id="countdown"></div>
+    </div>
+    <video autoplay muted loop class="back-video">
+        <source src="crakers.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</body>
+</html>
